@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Check-in - MindCare</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="bg-stone-100 font-sans">
+
+    <nav class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="heart" class="text-green-800 h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-green-800">MindCare</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="{{ url_for('home') }}" class="text-stone-700 hover:text-green-800 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="{{ url_for('resources') }}" class="text-stone-700 hover:text-green-800 px-3 py-2 text-sm font-medium">Resources</a>
+                    <a href="{{ url_for('support') }}" class="text-stone-700 hover:text-green-800 px-3 py-2 text-sm font-medium">Peer Support</a>
+                    <a href="{{ url_for('booking') }}" class="text-stone-700 hover:text-green-800 px-3 py-2 text-sm font-medium">Book Session</a>
+                    <a href="{{ url_for('chat_support') }}" class="text-stone-700 hover:text-green-800 px-3 py-2 text-sm font-medium">Chat Support</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-stone-700 hover:text-green-800 hover:bg-stone-100 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="{{ url_for('home') }}" class="text-stone-700 hover:bg-stone-100 hover:text-green-800 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="{{ url_for('resources') }}" class="text-stone-700 hover:bg-stone-100 hover:text-green-800 block px-3 py-2 rounded-md text-base font-medium">Resources</a>
+                <a href="{{ url_for('support') }}" class="text-stone-700 hover:bg-stone-100 hover:text-green-800 block px-3 py-2 rounded-md text-base font-medium">Peer Support</a>
+                <a href="{{ url_for('booking') }}" class="text-stone-700 hover:bg-stone-100 hover:text-green-800 block px-3 py-2 rounded-md text-base font-medium">Book Session</a>
+                <a href="{{ url_for('chat_support') }}" class="text-stone-700 hover:bg-stone-100 hover:text-green-800 block px-3 py-2 rounded-md text-base font-medium">Chat Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="min-h-screen w-full flex items-center justify-center pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg space-y-6">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-green-900">Mental Wellness Check-in</h2>
+                <p class="mt-2 text-sm text-stone-600">Your responses are confidential and help us understand your needs.</p>
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="p-4 rounded-md {{ 'bg-red-100 text-red-700' if category == 'error' else 'bg-green-100 text-green-700' }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <form method="POST" class="space-y-8">
+                {% for category, questions in questions_data.items() %}
+                    <div>
+                        <h3 class="text-xl font-bold text-green-800 border-b-2 border-green-200 pb-2 mb-6">{{ category }}</h3>
+                        <div class="space-y-6">
+                        {% for name, text in questions %}
+                            <div class="question-group">
+                                <p class="font-semibold text-stone-800">{{ loop.index }}. {{ text }}</p>
+                                <fieldset class="mt-3">
+                                    <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                                        {% for value, label in options_data.items() %}
+                                        <div>
+                                            <input type="radio" id="{{ name }}-{{ value }}" name="{{ name }}" value="{{ value }}" required class="sr-only peer">
+                                            <label for="{{ name }}-{{ value }}" 
+                                                   class="flex flex-col items-center text-center p-3 w-full border-2 border-stone-200 rounded-lg cursor-pointer hover:bg-stone-100 hover:border-stone-400 peer-checked:border-green-800 peer-checked:bg-green-50 peer-checked:text-green-900 transition-colors">
+                                                <span class="text-sm font-medium">{{ label }}</span>
+                                                <small class="text-xs text-stone-500">({{ value }})</small>
+                                            </label>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </fieldset>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+                
+                <div class="pt-6">
+                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700">
+                        Submit & Continue
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        feather.replace();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
