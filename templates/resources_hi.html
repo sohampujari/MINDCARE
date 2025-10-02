@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="Hindi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare - संसाधन केंद्र</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="/static/css/theme.css">
+    <style>
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .language-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(102, 126, 234, 0.9);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .chatbot-trigger {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="heart" class="text-green-800 h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-green-800">MindCare</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="{{ url_for('home_lang', lang='hi') }}" class="text-gray-700 hover:text-green-800 px-3 py-2 text-sm font-medium">होम</a>
+                    <a href="{{ url_for('resources_lang', lang='hi') }}" class="text-green-800 border-b-2 border-indigo-500 px-3 py-2 text-sm font-medium">साधन</a>
+                    <a href="{{ url_for('support_lang', lang='hi') }}" class="text-gray-700 hover:text-green-800 px-3 py-2 text-sm font-medium">सहकर्मी सहायता</a>
+                    <a href="{{ url_for('booking') }}" class="text-gray-700 hover:text-green-800 px-3 py-2 text-sm font-medium">सत्र बुक करें</a>
+                    <a href="{{ url_for('chat_support_lang', lang='hi') }}" class="text-gray-700 hover:text-green-800 px-3 py-2 text-sm font-medium">चैट समर्थन</a>                    
+                    <div class="relative">
+                        <button id="language-toggle" class="text-gray-700 hover:text-green-800 px-3 py-2 text-sm font-medium flex items-center">
+                            <i data-feather="globe" class="h-4 w-4 mr-1"></i>
+                            हिंदी
+                            <i id="language-chevron" data-feather="chevron-down" class="h-4 w-4 ml-1"></i>
+                        </button>
+                        <div id="language-dropdown" class="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg hidden">
+                            <ul>
+                                <li><a href="{{ url_for('resources') }}" class="block px-4 py-2 text-sm text-stone-700 hover:bg-stone-100">English</a></li>
+                                <li><a href="{{ url_for('resources_lang', lang='hi') }}" class="block px-4 py-2 text-sm text-stone-700 hover:bg-stone-100">हिन्दी</a></li>
+                                <li><a href="{{ url_for('resources_lang', lang='ks') }}" class="block px-4 py-2 text-sm text-stone-700 hover:bg-stone-100">कश्मीरी</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                        <a href="{{ url_for('login') }}" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-green-900">लॉगिन</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-green-800 hover:bg-gray-100 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-green-900 text-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                    मनोशैक्षिक संसाधन
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-xl">
+                    कई भाषाओं में वीडियो, ऑडियो गाइड और वेलनेस सामग्री तक पहुँच प्राप्त करें।
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resource Categories -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                श्रेणी के अनुसार खोजें
+            </h2>
+            <p class="mt-4 max-w-2xl mx-auto text-gray-500">
+               संबंधित मानसिक स्वास्थ्य संसाधन खोजने के लिए एक श्रेणी चुनें।
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12" id="category-buttons">
+            <button class="category-btn bg-white py-4 px-6 rounded-lg shadow-md hover:bg-indigo-50 transition-colors duration-300" data-category="videos">
+                <div class="flex flex-col items-center">
+                    <i data-feather="video" class="h-8 w-8 text-green-800"></i>
+                    <span class="mt-2 font-medium">वीडियो</span>
+                </div>
+            </button>
+            <button class="category-btn bg-white py-4 px-6 rounded-lg shadow-md hover:bg-indigo-50 transition-colors duration-300" data-category="audio">
+                <div class="flex flex-col items-center">
+                    <i data-feather="headphones" class="h-8 w-8 text-green-800"></i>
+                    <span class="mt-2 font-medium">ऑडियो गाइड्स</span>
+                </div>
+            </button>
+            <button class="category-btn bg-white py-4 px-6 rounded-lg shadow-md hover:bg-indigo-50 transition-colors duration-300" data-category="articles">
+                <div class="flex flex-col items-center">
+                    <i data-feather="book" class="h-8 w-8 text-green-800"></i>
+                    <span class="mt-2 font-medium">लेख</span>
+                </div>
+            </button>
+            <button class="category-btn bg-white py-4 px-6 rounded-lg shadow-md hover:bg-indigo-50 transition-colors duration-300" data-category="all">
+                <div class="flex flex-col items-center">
+                    <i data-feather="layers" class="h-8 w-8 text-green-800"></i>
+                    <span class="mt-2 font-medium">सभी</span>
+                </div>
+        </div>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const langFilters = document.querySelectorAll('.lang-filter');
+                
+                langFilters.forEach(button => {
+                    button.addEventListener('click', function() {
+                        // Update button styles
+                        langFilters.forEach(btn => {
+                            btn.classList.remove('bg-indigo-600', 'text-white');
+                            btn.classList.add('bg-gray-200', 'text-gray-800');
+                        });
+                        this.classList.remove('bg-gray-200', 'text-gray-800');
+                        this.classList.add('bg-indigo-600', 'text-white');
+                        
+                        const selectedLang = this.dataset.lang;
+                        const resourceCards = document.querySelectorAll('.resource-card');
+                        
+                        resourceCards.forEach(card => {
+                            const langTag = card.querySelector('.language-tag');
+                            if (selectedLang === 'all' || langTag.textContent.toLowerCase() === selectedLang) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+
+<!-- Language Filter -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-12">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">भाषा के अनुसार फ़िल्टर करें</h3>
+            <div class="flex flex-wrap gap-2">
+                <button class="lang-filter px-4 py-2 bg-indigo-600 text-white rounded-full text-sm" data-lang="all">सभी भाषाएँ</button>
+                <button class="lang-filter px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm hover:bg-gray-300" data-lang="en">अंग्रेज़ी</button>
+                <button class="lang-filter px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm hover:bg-gray-300" data-lang="hi">हिंदी</button>
+                <button class="lang-filter px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm hover:bg-gray-300" data-lang="ks">कश्मीरी</button>
+            </div>
+        </div>
+
+        <!-- Featured Resources -->
+        <div class="mb-12">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">प्रमुख वीडियो</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 
+                <!-- Video 1 -->
+            <a href="https://youtu.be/1XCObQjSHIs?si=FWy9CS1AuN0dwyeshttps://youtu.be/1XCObQjSHIs?si=FWy9CS1AuN0dwyes" target="_blank" rel="noopener noreferrer" class="block">
+    <div class="resource-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-lg" data-aos="fade-up">
+        <div class="relative">
+            <img src="http://static.photos/technology/640x360/1" alt="Video thumbnail" class="w-full h-48 object-cover">
+            <div class="language-tag">English</div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-white bg-opacity-80 rounded-full p-3">
+                    <i data-feather="play" class="h-6 w-6 text-green-800"></i>
+                </div>
+            </div>
+        </div>
+        <div class="p-6">
+            <h4 class="font-bold text-lg mb-2">Managing Anxiety in College</h4>
+            <p class="text-gray-600 mb-4">Learn practical strategies to cope with academic stress and anxiety.</p>
+            <div class="flex items-center text-sm text-gray-500">
+                <i data-feather="clock" class="h-4 w-4 mr-1"></i>
+                <span>12 min</span>
+            </div>
+        </div>
+    </div>
+</a>
+
+                <!-- Video 2 -->
+<a href="https://youtu.be/Zw1G5nvLXCc?si=j4bmuNT5XLY07xMF" target="_blank" rel="noopener noreferrer" class="block">
+    <div class="resource-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-lg" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative">
+            <img src="http://static.photos/people/640x360/2" alt="Video thumbnail" class="w-full h-48 object-cover">
+            <div class="language-tag">हिंदी</div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-white bg-opacity-80 rounded-full p-3">
+                    <i data-feather="play" class="h-6 w-6 text-green-800"></i>
+                </div>
+            </div>
+        </div>
+        <div class="p-6">
+            <h4 class="font-bold text-lg mb-2">मानसिक स्वास्थ्य और माइंडफुलनेस</h4>
+            <p class="text-gray-600 mb-4">तनाव को कम करने और मानसिक संतुलन पाने के लिए माइंडफुलनेस गाइड।</p>
+            <div class="flex items-center text-sm text-gray-500">
+                <i data-feather="clock" class="h-4 w-4 mr-1"></i>
+                <span>20 min</span>
+            </div>
+        </div>
+    </div>
+</a>
+
+                <!-- Video 3 -->
+<a href="https://youtu.be/6FPGATaihzU?si=1vAQZAnWXtpQwYIU" target="_blank" rel="noopener noreferrer" class="block">
+    <div class="resource-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-lg" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative">
+            <img src="http://static.photos/nature/640x360/3" alt="Video thumbnail" class="w-full h-48 object-cover">
+            <div class="language-tag">اردو</div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-white bg-opacity-80 rounded-full p-3">
+                    <i data-feather="play" class="h-6 w-6 text-green-800"></i>
+                </div>
+            </div>
+        </div>
+        <div class="p-6">
+            <h4 class="font-bold text-lg mb-2">ذہنی صحت اور بہتر نیند کی عادات</h4>
+            <p class="text-gray-600 mb-4">نیند کے معیار کو بہتر بنانے اور صحت مند معمولات قائم کرنے کے لئے اہم تجاویز۔</p>
+            <div class="flex items-center text-sm text-gray-500">
+                <i data-feather="clock" class="h-4 w-4 mr-1"></i>
+                <span>15 min</span>
+            </div>
+        </div>
+    </div>
+</a>
+</div>
+        <!-- Audio Resources -->
+        <div class="mb-12">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">विश्राम ऑडियो मार्गदर्शक</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                 <!-- Audio 1 -->
+<div class="resource-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 ease-in-out" data-aos="fade-up">
+    <div class="relative">
+        <img src="http://static.photos/nature/640x360/4" alt="Audio thumbnail" class="w-full h-48 object-cover">
+        <div class="language-tag">Hindi</div>
+    </div>
+    <div class="p-6">
+        <h4 class="font-bold text-lg mb-2">Deep Breathing Exercise</h4>
+        <p class="text-gray-600 mb-4">Guided breathing technique to reduce stress and anxiety.</p>
+        <div class="flex items-center justify-between">
+            <div class="flex items-center text-sm text-gray-500">
+                <i data-feather="clock" class="h-4 w-4 mr-1"></i>
+                <span>10 min</span>
+            </div>
+            <a href="https://www.mayo.edu/research/labs/mindful-breathing/audio-files" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm hover:bg-green-900 flex items-center">
+                <i data-feather="play" class="h-4 w-4 mr-1"></i>
+                Play
+            </a>
+        </div>
+    </div>
+</div>
+
+                <!-- Audio 2 -->
+<div class="resource-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="100">
+    <div class="relative">
+        <img src="http://static.photos/nature/640x360/5" alt="Audio thumbnail" class="w-full h-48 object-cover">
+        <div class="language-tag">हिंदी</div>
+    </div>
+    <div class="p-6">
+        <h4 class="font-bold text-lg mb-2">प्रोग्रेसिव मसल रिलैक्सेशन</h4>
+        <p class="text-gray-600 mb-4">तनाव और थकान को दूर करने के लिए चरण-दर-चरण गाइड।</p>
+        <div class="flex items-center justify-between">
+            <div class="flex items-center text-sm text-gray-500">
+                <i data-feather="clock" class="h-4 w-4 mr-1"></i>
+                <span>15 min</span>
+            </div>
+            <a href="https://services.unimelb.edu.au/counsel/resources/guided-exercises/progressive-muscle-relaxation" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm hover:bg-green-900 flex items-center">
+                <i data-feather="play" class="h-4 w-4 mr-1"></i>
+                Play
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Audio 3 -->
+<div class="resource-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 ease-in-out" 
+     data-aos="fade-up" data-aos-delay="300">
+  <div class="relative">
+    <img src="http://static.photos/nature/640x360/10" alt="Audio thumbnail" class="w-full h-48 object-cover">
+    <div class="language-tag">पहाड़ी</div>
+  </div>
+  <div class="p-6">
+    <h4 class="font-bold text-lg mb-2">मन दी शांति लई ध्यान</h4>
+    <p class="text-gray-600 mb-4">तनाव घटाण अते नींद सुधारण लई मार्गदर्शन ध्यान।</p>
+    <div class="flex items-center justify-between">
+      <div class="flex items-center text-sm text-gray-500">
+        <i data-feather="clock" class="h-4 w-4 mr-1"></i>
+        <span>20 min</span>
+      </div>
+      <a href="https://www.youtube.com/watch?app=desktop&v=HkHIdvNUKCM" 
+         target="_blank" rel="noopener noreferrer"
+         class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm hover:bg-green-900 flex items-center">
+        <i data-feather="play" class="h-4 w-4 mr-1"></i>
+        Play
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+
+        <!-- Articles -->
+        <div class="mb-12">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">स्वास्थ्य लेख</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+               <!-- Article 1 - English -->
+        <a href="Are winters making you SAD? Beware of Seasonal Affective Disorder/" 
+           target="_blank" rel="noopener noreferrer" class="block">
+            <div class="resource-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-lg" data-aos="fade-up">
+                <div class="relative">
+                    <img src="http://static.photos/office/640x360/7" alt="Article thumbnail" class="w-full h-48 object-cover">
+                    <div class="language-tag">English</div>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-lg mb-2">Are winters making you SAD? Beware of Seasonal Affective Disorder</h4>
+                    <p class="text-gray-600 mb-4">Seasonal Affective Disorder is a recurring depression that usually happens in winter.</p>
+                    <div class="flex items-center text-sm text-green-800 font-medium">
+                        <span>Read Article</span>
+                        <i data-feather="arrow-right" class="h-4 w-4 ml-1"></i>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+                 <!-- Article 2 - Hindi -->
+        <a href="https://www.onlymyhealth.com/topic/mental-health-in-hindi" 
+           target="_blank" rel="noopener noreferrer" class="block">
+            <div class="resource-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative">
+                    <img src="http://static.photos/people/640x360/8" alt="Article thumbnail" class="w-full h-48 object-cover">
+                    <div class="language-tag">हिंदी</div>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-lg mb-2">सकारात्मक संबंध कैसे बनाएं</h4>
+                    <p class="text-gray-600 mb-4">दूसरों के साथ अच्छे संबंध स्थापित और बनाए रखने के तरीके।</p>
+                    <div class="flex items-center text-sm text-green-800 font-medium">
+                        <span>लेख पढ़ें</span>
+                        <i data-feather="arrow-right" class="h-4 w-4 ml-1"></i>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+               <!-- Article 3 - Urdu -->
+        <a href="https://www.bbc.com/urdu/science-60028475" 
+           target="_blank" rel="noopener noreferrer" class="block">
+            <div class="resource-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative">
+                    <img src="http://static.photos/nature/640x360/9" alt="Article thumbnail" class="w-full h-48 object-cover">
+                    <div class="language-tag">اردو</div>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-lg mb-2">خوشی کا سائنس</h4>
+                    <p class="text-gray-600 mb-4">ذہنی سکون اور خوش رہنے کے لئے سائنسی طریقے۔</p>
+                    <div class="flex items-center text-sm text-green-800 font-medium">
+                        <span>مضمون پڑھیں</span>
+                        <i data-feather="arrow-right" class="h-4 w-4 ml-1"></i>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+    <!-- CTA Section -->
+    <div class="bg-green-900 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                    क्या आपको और व्यक्तिगत मदद की आवश्यकता है?
+                </h2>
+                <p class="mt-4 max-w-2xl mx-auto text-xl">
+                   हमारे पेशेवर काउंसलर एक-से-एक सत्रों के लिए उपलब्ध हैं।
+                </p>
+                <div class="mt-8 flex justify-center">
+                    <a href="booking.html" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-green-800 bg-white hover:bg-indigo-50">
+                        सत्र बुक करें
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white text-sm font-semibold tracking-wider uppercase">सेवाएँ</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white">AI सहायता</a></li>
+                        <li><a href="booking.html" class="text-gray-400 hover:text-white">काउंसलिंग</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white">संसाधन</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-white">सहकर्मी सहायता</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-semibold tracking-wider uppercase">सहायता</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white">सहायता केंद्र</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">सुरक्षा</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">गोपनीयता</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">सुगम्यता</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-semibold tracking-wider uppercase">कंपनी</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white">के बारे में</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">टीम</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">कैरियर</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">संपर्क करें</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-semibold tracking-wider uppercase">कानूनी</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white">शर्तें</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">गोपनीयता</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">कुकीज़</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">लाइसेंस</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+                <div class="flex space-x-6 md:order-2">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i data-feather="facebook" class="h-6 w-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i data-feather="instagram" class="h-6 w-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i data-feather="twitter" class="h-6 w-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i data-feather="linkedin" class="h-6 w-6"></i>
+                    </a>
+                </div>
+                <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+                    &copy; 2023 MindCare. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Language dropdown toggle
+        const languageToggle = document.getElementById('language-toggle');
+        const languageDropdown = document.getElementById('language-dropdown');
+        const languageChevron = document.getElementById('language-chevron');
+
+        languageToggle.addEventListener('click', function() {
+            languageDropdown.classList.toggle('hidden');
+            const isHidden = languageDropdown.classList.contains('hidden');
+            feather.replace();
+            if (isHidden) {
+                languageChevron.setAttribute('data-feather', 'chevron-down');
+            } else {
+                languageChevron.setAttribute('data-feather', 'chevron-up');
+            }
+            feather.replace();
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!languageToggle.contains(event.target) && !languageDropdown.contains(event.target)) {
+                languageDropdown.classList.add('hidden');
+                languageChevron.setAttribute('data-feather', 'chevron-down');
+                feather.replace();
+            }
+        });
+
+        // Replace Feather icons
+        feather.replace();
+    </script>
+</body>
+</html>

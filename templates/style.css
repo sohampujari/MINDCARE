@@ -1,0 +1,31 @@
+/* MindCare Theme: Kashmir Calm Palette */
+:root {
+  --mc-primary: #3E885B; /* new main green */
+  --mc-primary-hover: #2e6240; /* darker green for hover */
+  --mc-secondary: #F9F7F0; /* warm beige (sections/cards) */
+  --mc-secondary-hover: #f0ede3;
+  --mc-bg: #F9F7F0; /* warm beige base */
+  --mc-accent: #3AAFA9; /* calm teal (highlights/hover/CTA) */
+  --mc-text: #2E2E2E; /* dark slate */
+  --mc-subtext: #6B6B6B; /* soft grey */
+  --mc-border: #E6E2D9; /* soft beige border */
+}
+body {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+button, .btn-primary {
+  background-color: var(--main-color);
+  color: white;
+}
+
+button:hover, .btn-primary:hover {
+  background-color: var(--accent-color);
+}
+a {
+  color: var(--main-color);
+}
+a:hover {
+  color: var(--accent-color);
+} 

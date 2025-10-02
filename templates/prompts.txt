@@ -1,0 +1,11 @@
+Make videos, audio files, and articles available in English, Hindi, Urdu, and Kashmiri. Move the "Filter by Language" option below "Explore by Category". Make the buttons in "Explore by Category" work. 
+Make videos, audio files, and articles available in English, Hindi, Urdu, and Kashmiri. Move the "Filter by Language" option below "Explore by Category". Make the buttons in "Explore by Category" work. 
+Add a smaller scroll-down button in the Navigation bar for Languages. Include English, Hindi, and Pahari. Change the whole website language according to the chosen option
+Add a smaller scroll-down button in the Navigation bar for Languages. Include English, Hindi, Urdu, and Pahari. 
+Chat Support vanishes randomly. Fix the bug
+Fix the language scroll-down button in the Navigation Bar. 
+Remove Urdu. Make it click and scroll down. Click again to scroll up. 
+Sync all the changes throughout the websites.
+Chat Support disappears when Resources is clicked.  Fix the Navigation Bar 
+Under the Filter by Language, make the English, Hindi, Urdu, Kashmiri buttons clickable. When English is clicked show only Englsih language content
+Under Peer Support, in the Discussion Forum, if the user clicks new post, add text option and post in Discussion form once completed

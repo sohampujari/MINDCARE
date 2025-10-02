@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - MindCare</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="/static/css/theme.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="bg-stone-100 font-sans">
+
+    <nav class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="heart" class="text-green-800 h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-green-800">MindCare</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="{{ url_for('home') }}" class="text-stone-700 hover:text-green-800 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="{{ url_for('resources') }}" class="text-stone-700 hover:text-green-800 px-3 py-2 text-sm font-medium">Resources</a>
+                    <a href="{{ url_for('support') }}" class="text-stone-700 hover:text-green-800 px-3 py-2 text-sm font-medium">Peer Support</a>
+                    <a href="{{ url_for('booking') }}" class="text-stone-700 hover:text-green-800 px-3 py-2 text-sm font-medium">Book Session</a>
+                    <a href="{{ url_for('chat_support') }}" class="text-stone-700 hover:text-green-800 px-3 py-2 text-sm font-medium">Chat Support</a>
+                    <a href="{{ url_for('login') }}" class="bg-green-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-green-900">Login</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-stone-700 hover:text-green-800 hover:bg-stone-100 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="{{ url_for('home') }}" class="text-stone-700 hover:bg-stone-100 hover:text-green-800 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="{{ url_for('resources') }}" class="text-stone-700 hover:bg-stone-100 hover:text-green-800 block px-3 py-2 rounded-md text-base font-medium">Resources</a>
+                <a href="{{ url_for('support') }}" class="text-stone-700 hover:bg-stone-100 hover:text-green-800 block px-3 py-2 rounded-md text-base font-medium">Peer Support</a>
+                <a href="{{ url_for('booking') }}" class="text-stone-700 hover:bg-stone-100 hover:text-green-800 block px-3 py-2 rounded-md text-base font-medium">Book Session</a>
+                <a href="{{ url_for('chat_support') }}" class="text-stone-700 hover:bg-stone-100 hover:text-green-800 block px-3 py-2 rounded-md text-base font-medium">Chat Support</a>
+                <a href="{{ url_for('login') }}" class="bg-green-800 text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-green-900">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="min-h-screen flex items-center justify-center pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-lg w-full bg-white p-8 rounded-xl shadow-lg space-y-6">
+            
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-green-900">Create Your Account</h2>
+                <p class="mt-2 text-sm text-stone-600">Join our community to access support and resources.</p>
+            </div>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="p-4 rounded-md {{ 'bg-red-100 text-red-700' if category == 'error' else 'bg-green-100 text-green-700' }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST" class="space-y-6">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-stone-700">Username</label>
+                    <input type="text" id="username" name="username" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm placeholder-stone-400 focus:outline-none focus:ring-green-700 focus:border-green-700">
+                </div>
+                 <div>
+                    <label for="email" class="block text-sm font-medium text-stone-700">Email</label>
+                    <input type="email" id="email" name="email" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm placeholder-stone-400 focus:outline-none focus:ring-green-700 focus:border-green-700">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-stone-700">Password</label>
+                    <input type="password" id="password" name="password" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm placeholder-stone-400 focus:outline-none focus:ring-green-700 focus:border-green-700">
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="district" class="block text-sm font-medium text-stone-700">District</label>
+                        <input type="text" id="district" name="district" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-green-700 focus:border-green-700">
+                    </div>
+                    <div>
+                        <label for="college_name" class="block text-sm font-medium text-stone-700">College Name</label>
+                        <input type="text" id="college_name" name="college_name" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-green-700 focus:border-green-700">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="course" class="block text-sm font-medium text-stone-700">Course</label>
+                        <input type="text" id="course" name="course" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-green-700 focus:border-green-700">
+                    </div>
+                    <div>
+                        <label for="year_of_study" class="block text-sm font-medium text-stone-700">Year of Study</label>
+                        <select id="year_of_study" name="year_of_study" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-green-700 focus:border-green-700">
+                            <option value="" disabled selected>Select Year</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="gender" class="block text-sm font-medium text-stone-700">Gender</label>
+                    <select id="gender" name="gender" required class="mt-1 block w-full px-3 py-2 border border-stone-300 rounded-md shadow-sm focus:outline-none focus:ring-green-700 focus:border-green-700">
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                        <option value="Prefer not to say">Prefer not to say</option>
+                    </select>
+                </div>
+                
+                <div>
+                     <label class="block text-sm font-medium text-stone-700">Age Group</label>
+                     <fieldset class="mt-2">
+                        <div class="flex items-center space-x-4">
+                            <label for="age1" class="flex items-center cursor-pointer">
+                                <input type="radio" id="age1" name="age_group" value="18–20" required class="h-4 w-4 text-green-800 focus:ring-green-700 border-stone-300">
+                                <span class="ml-2 text-sm text-stone-600">18–20</span>
+                            </label>
+                             <label for="age2" class="flex items-center cursor-pointer">
+                                <input type="radio" id="age2" name="age_group" value="21–23" class="h-4 w-4 text-green-800 focus:ring-green-700 border-stone-300">
+                                <span class="ml-2 text-sm text-stone-600">21–23</span>
+                            </label>
+                             <label for="age3" class="flex items-center cursor-pointer">
+                                <input type="radio" id="age3" name="age_group" value="24–26" class="h-4 w-4 text-green-800 focus:ring-green-700 border-stone-300">
+                                <span class="ml-2 text-sm text-stone-600">24–26</span>
+                            </label>
+                        </div>
+                     </fieldset>
+                </div>
+                
+                <div>
+                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700">
+                        Register & Proceed
+                    </button>
+                </div>
+            </form>
+            <p class="text-center text-sm text-stone-600">
+                Already have an account? 
+                <a href="{{ url_for('login') }}" class="font-medium text-green-800 hover:text-green-700">
+                    Log In
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        feather.replace();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

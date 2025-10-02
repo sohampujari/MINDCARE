@@ -1,0 +1,101 @@
+student_id,district,college_name,course,year_of_study,gender,age_group,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19,Q20,PHQ_score,PHQ_category,GAD_score,GAD_category,GHQ_score,GHQ_category,total_score,composite_risk
+STU001,Baramulla,Govt Degree College Pulwama,MBA,1,Female,18–20,3,3,2,3,2,3,3,2,1,2,0,2,0,0,0,0,2,2,0,1,22,Severe,4,Minimal,5,Mild,31,Moderate Risk
+STU002,Baramulla,Govt MAM College Jammu,B.A.,4,Other,24–26,1,2,1,1,0,0,2,2,2,3,3,1,1,0,1,2,3,1,3,2,11,Moderate,11,Moderate,9,Mild,31,Moderate Risk
+STU003,Anantnag,Govt Degree College Anantnag,M.Com,4,Prefer not to say,21–23,0,2,1,2,0,1,2,0,0,2,2,0,2,2,2,2,2,3,0,2,8,Mild,12,Moderate,7,Mild,27,Moderate Risk
+STU004,Baramulla,Govt Degree College Anantnag,MBA,3,Male,24–26,3,1,0,1,2,0,0,1,2,0,2,3,0,2,0,1,3,2,0,2,10,Moderate,8,Mild,7,Mild,25,Moderate Risk
+STU005,Baramulla,Govt Degree College Pulwama,B.Tech,4,Female,21–23,0,3,2,0,0,1,1,2,1,0,1,1,1,3,2,0,0,0,1,2,10,Moderate,8,Mild,3,Minimal,21,Moderate Risk
+STU006,Kupwara,Govt Degree College Baramulla,B.Tech,1,Prefer not to say,24–26,2,0,3,0,2,2,0,0,1,3,0,3,0,1,0,3,1,3,1,3,10,Moderate,10,Moderate,8,Mild,28,Moderate Risk
+STU007,Anantnag,Islamia College Srinagar,M.Com,1,Prefer not to say,24–26,0,2,3,1,3,1,1,1,0,2,2,2,0,1,0,2,3,1,3,1,12,Moderate,9,Mild,8,Mild,29,Moderate Risk
+STU008,Kupwara,Govt Degree College Pulwama,B.Tech,1,Prefer not to say,24–26,2,1,3,3,0,2,3,0,3,0,1,0,0,2,2,0,2,0,1,2,17,Moderately Severe,5,Mild,5,Mild,27,Moderate Risk
+STU009,Baramulla,Govt Degree College Kupwara,B.Tech,1,Female,24–26,3,0,1,1,3,2,2,2,0,1,0,2,2,1,3,1,2,2,1,2,14,Moderate,10,Moderate,7,Mild,31,Moderate Risk
+STU010,Kupwara,Govt Degree College Baramulla,M.Com,4,Other,24–26,2,3,2,0,0,3,3,1,2,1,3,3,1,2,3,0,2,1,0,1,16,Moderately Severe,13,Moderate,4,Minimal,33,Moderate Risk
+STU011,Pulwama,Govt Degree College Pulwama,B.Sc.,2,Female,24–26,0,1,2,3,1,3,0,0,3,2,3,1,0,2,2,3,1,1,1,0,13,Moderate,13,Moderate,3,Minimal,29,Moderate Risk
+STU012,Pulwama,Govt Degree College Anantnag,MBA,4,Other,24–26,3,3,0,2,2,2,2,3,2,0,1,3,3,0,1,1,0,2,2,2,19,Moderately Severe,9,Mild,6,Mild,34,Moderate Risk
+STU013,Pulwama,Govt MAM College Jammu,B.Tech,4,Prefer not to say,21–23,3,3,0,1,1,2,0,3,2,2,1,3,1,3,1,2,1,3,3,1,15,Moderately Severe,13,Moderate,8,Mild,36,Moderate Risk
+STU014,Srinagar,Govt Degree College Anantnag,B.A.,2,Male,18–20,1,1,3,2,3,3,2,3,3,2,1,2,0,0,3,1,0,0,1,0,21,Severe,9,Mild,1,Minimal,31,Moderate Risk
+STU015,Pulwama,Govt Degree College Anantnag,B.A.,2,Female,24–26,3,0,0,2,0,0,1,2,1,3,1,1,2,1,2,0,3,2,1,0,9,Mild,10,Moderate,6,Mild,25,Moderate Risk
+STU016,Anantnag,Govt Degree College Kupwara,M.A.,4,Other,24–26,1,3,3,2,0,0,2,2,2,3,2,2,0,2,3,1,3,1,0,0,15,Moderately Severe,13,Moderate,4,Minimal,32,Moderate Risk
+STU017,Baramulla,Govt Degree College Anantnag,M.Sc.,1,Prefer not to say,24–26,3,3,2,3,2,3,0,0,3,2,1,2,0,2,2,0,1,2,3,2,19,Moderately Severe,9,Mild,8,Mild,36,Moderate Risk
+STU018,Kupwara,Govt Degree College Anantnag,M.A.,3,Other,21–23,1,2,0,3,1,2,2,2,1,3,0,1,1,1,3,1,0,0,0,1,14,Moderate,10,Moderate,1,Minimal,25,Moderate Risk
+STU019,Srinagar,Govt Degree College Pulwama,M.Com,1,Male,24–26,3,1,1,0,1,0,1,3,1,2,3,0,1,3,1,0,0,0,2,1,11,Moderate,10,Moderate,3,Minimal,24,Moderate Risk
+STU020,Srinagar,Govt Degree College Kupwara,B.Tech,4,Male,21–23,3,1,1,1,3,2,1,0,2,0,3,0,0,1,0,2,2,2,3,2,14,Moderate,6,Mild,9,Mild,29,Moderate Risk
+STU021,Kupwara,Govt Degree College Kupwara,B.A.,3,Female,21–23,3,3,3,2,1,0,2,0,1,2,2,1,0,3,2,0,3,1,2,3,15,Moderately Severe,10,Moderate,9,Mild,34,Moderate Risk
+STU022,Baramulla,Govt Degree College Kupwara,M.A.,3,Prefer not to say,24–26,1,3,1,2,2,2,1,0,3,2,1,1,1,3,3,2,1,3,3,3,15,Moderately Severe,13,Moderate,10,Moderate,38,Moderate Risk
+STU023,Anantnag,Govt Degree College Baramulla,M.A.,3,Other,21–23,0,0,0,2,1,0,2,3,3,0,3,1,3,1,2,1,2,2,0,1,11,Moderate,11,Moderate,5,Mild,27,Moderate Risk
+STU024,Baramulla,Islamia College Srinagar,B.Tech,4,Male,21–23,0,3,3,1,2,1,1,3,0,0,0,0,0,3,1,1,3,2,1,1,14,Moderate,5,Mild,7,Mild,26,Moderate Risk
+STU025,Baramulla,Govt Degree College Baramulla,B.Com,1,Prefer not to say,24–26,3,3,3,0,0,1,1,3,0,2,3,0,3,2,1,3,1,0,0,0,14,Moderate,14,Moderate,1,Minimal,29,Moderate Risk
+STU026,Srinagar,Islamia College Srinagar,B.Com,1,Other,18–20,3,3,1,0,2,2,3,3,2,1,1,1,0,0,3,2,1,1,2,1,19,Moderately Severe,8,Mild,5,Mild,32,Moderate Risk
+STU027,Anantnag,Govt Degree College Kupwara,B.Tech,1,Female,18–20,0,1,0,2,1,0,3,2,0,1,3,0,3,2,3,2,0,2,0,0,9,Mild,14,Moderate,2,Minimal,25,Moderate Risk
+STU028,Srinagar,Govt Degree College Pulwama,MBA,1,Prefer not to say,24–26,3,3,3,0,0,2,2,0,2,3,2,2,2,1,3,2,2,3,1,2,15,Moderately Severe,15,Severe,8,Mild,38,Moderate Risk
+STU029,Jammu,Govt Degree College Anantnag,B.A.,2,Male,24–26,3,0,3,3,2,1,1,3,1,1,1,3,1,0,1,0,2,1,1,3,17,Moderately Severe,7,Mild,7,Mild,31,Moderate Risk
+STU030,Srinagar,Islamia College Srinagar,B.Sc.,4,Male,24–26,1,2,1,2,3,3,3,0,0,1,1,3,3,1,1,2,1,3,3,2,15,Moderately Severe,12,Moderate,9,Mild,36,Moderate Risk
+STU031,Baramulla,Govt MAM College Jammu,B.Tech,2,Other,18–20,1,0,1,1,0,1,2,2,1,0,2,2,0,0,1,2,1,1,3,2,9,Mild,7,Mild,7,Mild,23,Moderate Risk
+STU032,Srinagar,Govt Degree College Kupwara,M.Sc.,1,Prefer not to say,24–26,3,1,2,0,1,1,3,1,0,0,3,2,3,2,2,2,3,1,3,0,12,Moderate,14,Moderate,7,Mild,33,Moderate Risk
+STU033,Kupwara,Govt Degree College Baramulla,M.A.,4,Prefer not to say,21–23,1,0,3,2,2,2,0,1,3,3,3,2,0,3,1,1,0,3,2,3,14,Moderate,13,Moderate,8,Mild,35,Moderate Risk
+STU034,Pulwama,Islamia College Srinagar,B.Sc.,1,Male,18–20,0,0,2,3,1,2,2,1,3,3,3,1,0,3,0,0,0,3,0,0,14,Moderate,10,Moderate,3,Minimal,27,Moderate Risk
+STU035,Baramulla,Govt MAM College Jammu,MBA,4,Male,18–20,1,2,1,3,1,3,0,1,3,0,2,2,2,1,0,3,1,1,2,2,15,Moderately Severe,10,Moderate,6,Mild,31,Moderate Risk
+STU036,Kupwara,Govt Degree College Kupwara,M.Com,2,Prefer not to say,18–20,1,1,1,2,3,2,3,3,3,2,0,1,0,0,0,2,0,0,0,3,19,Moderately Severe,5,Mild,3,Minimal,27,Moderate Risk
+STU037,Srinagar,Islamia College Srinagar,M.Sc.,4,Prefer not to say,18–20,0,1,0,2,1,3,0,0,3,1,2,3,0,0,3,2,3,2,0,1,10,Moderate,11,Moderate,6,Mild,27,Moderate Risk
+STU038,Pulwama,Govt Degree College Kupwara,B.A.,2,Prefer not to say,24–26,0,2,3,0,0,0,1,0,2,3,2,3,1,0,0,2,0,3,1,0,8,Mild,11,Moderate,4,Minimal,23,Moderate Risk
+STU039,Kupwara,Govt Degree College Kupwara,M.A.,1,Female,24–26,1,0,0,2,2,2,0,2,2,1,3,2,0,3,2,2,1,2,3,3,11,Moderate,13,Moderate,9,Mild,33,Moderate Risk
+STU040,Jammu,Govt Degree College Anantnag,B.A.,1,Male,24–26,1,3,1,1,1,2,3,3,3,0,2,2,3,2,1,2,0,1,0,0,18,Moderately Severe,12,Moderate,1,Minimal,31,Moderate Risk
+STU041,Jammu,Govt Degree College Anantnag,B.Tech,1,Prefer not to say,24–26,3,2,0,1,0,3,2,1,3,0,0,3,2,0,1,3,2,0,3,2,15,Moderately Severe,9,Mild,7,Mild,31,Moderate Risk
+STU042,Jammu,Govt Degree College Baramulla,M.Com,2,Other,21–23,2,0,3,1,0,3,3,0,0,0,0,0,3,1,1,2,0,2,2,0,12,Moderate,7,Mild,4,Minimal,23,Moderate Risk
+STU043,Srinagar,Govt Degree College Anantnag,MBA,4,Prefer not to say,18–20,2,2,3,0,2,1,3,3,3,1,1,2,2,2,1,3,2,3,3,3,19,Moderately Severe,12,Moderate,11,Moderate,42,High Risk
+STU044,Kupwara,Govt Degree College Baramulla,B.Com,4,Male,18–20,0,3,0,3,3,0,2,0,0,2,0,1,0,3,2,2,0,3,3,2,11,Moderate,10,Moderate,8,Mild,29,Moderate Risk
+STU045,Jammu,Govt Degree College Pulwama,B.Com,4,Female,24–26,1,3,1,1,0,3,0,3,1,3,1,2,1,0,1,2,2,2,3,1,13,Moderate,10,Moderate,8,Mild,31,Moderate Risk
+STU046,Baramulla,Govt Degree College Anantnag,MBA,2,Male,24–26,1,3,2,0,1,2,3,3,3,3,1,3,0,2,1,3,3,0,1,2,18,Moderately Severe,13,Moderate,6,Mild,37,Moderate Risk
+STU047,Baramulla,Govt Degree College Kupwara,B.A.,4,Male,18–20,2,1,1,0,1,2,3,0,2,2,2,3,3,2,1,0,2,1,3,0,12,Moderate,13,Moderate,6,Mild,31,Moderate Risk
+STU048,Pulwama,Govt Degree College Kupwara,MBA,3,Male,18–20,1,3,1,2,0,2,1,1,0,3,2,0,3,2,2,3,1,1,0,3,11,Moderate,15,Severe,5,Mild,31,Moderate Risk
+STU049,Kupwara,Govt Degree College Anantnag,MBA,1,Other,18–20,1,2,3,2,0,0,0,3,1,3,3,0,3,1,1,1,2,0,1,1,12,Moderate,12,Moderate,4,Minimal,28,Moderate Risk
+STU050,Pulwama,Islamia College Srinagar,M.Com,3,Female,18–20,0,2,1,2,0,3,2,3,2,3,3,2,3,1,1,0,0,1,1,0,15,Moderately Severe,13,Moderate,2,Minimal,30,Moderate Risk
+STU051,Anantnag,Govt Degree College Kupwara,B.Com,2,Prefer not to say,18–20,1,0,1,3,1,1,0,0,1,0,3,3,0,1,3,0,2,2,1,3,8,Mild,10,Moderate,8,Mild,26,Moderate Risk
+STU052,Srinagar,Govt Degree College Pulwama,MBA,3,Other,24–26,1,0,2,1,3,1,3,1,3,2,0,0,3,0,3,0,2,3,2,3,15,Moderately Severe,8,Mild,10,Moderate,33,Moderate Risk
+STU053,Kupwara,Govt MAM College Jammu,M.Com,1,Prefer not to say,21–23,0,1,1,0,2,0,1,1,2,2,2,2,1,3,1,1,2,1,0,1,8,Mild,12,Moderate,4,Minimal,24,Moderate Risk
+STU054,Jammu,Govt Degree College Kupwara,M.Sc.,3,Male,24–26,3,2,3,3,0,2,3,2,3,1,3,2,2,3,0,0,0,1,0,3,21,Severe,11,Moderate,4,Minimal,36,Moderate Risk
+STU055,Pulwama,Govt Degree College Baramulla,B.Com,1,Other,21–23,0,2,1,2,2,1,1,0,1,2,1,3,0,0,1,0,0,2,1,3,10,Moderate,7,Mild,6,Mild,23,Moderate Risk
+STU056,Kupwara,Govt Degree College Pulwama,M.A.,2,Female,24–26,3,0,3,0,3,1,0,2,0,1,0,2,3,3,2,0,3,0,3,2,12,Moderate,11,Moderate,8,Mild,31,Moderate Risk
+STU057,Baramulla,Govt Degree College Baramulla,B.Sc.,3,Other,18–20,3,2,2,0,0,2,3,2,1,2,1,0,3,1,1,0,0,3,3,2,15,Moderately Severe,8,Mild,8,Mild,31,Moderate Risk
+STU058,Jammu,Govt Degree College Anantnag,B.Sc.,3,Female,21–23,3,0,3,3,2,2,3,3,3,3,2,2,2,2,0,0,1,2,2,2,22,Severe,11,Moderate,7,Mild,40,Moderate Risk
+STU059,Kupwara,Govt MAM College Jammu,B.Tech,2,Other,18–20,2,0,1,0,0,0,2,0,0,2,2,2,3,3,0,1,3,3,0,2,5,Mild,13,Moderate,8,Mild,26,Moderate Risk
+STU060,Anantnag,Govt Degree College Anantnag,B.Tech,4,Other,24–26,2,0,0,1,2,1,0,3,3,3,3,2,1,2,2,3,2,2,2,0,12,Moderate,16,Severe,6,Mild,34,Moderate Risk
+STU061,Pulwama,Govt Degree College Kupwara,M.A.,2,Female,18–20,0,3,1,1,1,3,1,2,3,2,3,0,3,1,3,0,0,2,2,1,15,Moderately Severe,12,Moderate,5,Mild,32,Moderate Risk
+STU062,Anantnag,Govt Degree College Anantnag,B.A.,2,Male,18–20,1,2,0,0,3,2,2,3,0,3,3,1,2,0,2,3,1,2,3,2,13,Moderate,14,Moderate,8,Mild,35,Moderate Risk
+STU063,Pulwama,Govt Degree College Pulwama,B.Tech,2,Male,24–26,2,1,1,0,2,2,0,2,1,3,2,2,1,2,2,3,3,1,1,2,11,Moderate,15,Severe,7,Mild,33,Moderate Risk
+STU064,Kupwara,Govt MAM College Jammu,B.Tech,2,Male,24–26,2,2,2,3,2,3,3,0,1,2,3,2,0,0,1,1,3,1,3,3,18,Moderately Severe,9,Mild,10,Moderate,37,Moderate Risk
+STU065,Baramulla,Islamia College Srinagar,B.Com,1,Prefer not to say,18–20,0,2,0,2,1,2,2,2,1,1,0,0,1,3,0,0,0,2,0,2,12,Moderate,5,Mild,4,Minimal,21,Moderate Risk
+STU066,Kupwara,Islamia College Srinagar,M.Com,2,Female,24–26,1,2,0,0,1,0,0,3,1,3,1,1,2,3,3,2,0,0,3,1,8,Mild,15,Severe,4,Minimal,27,Moderate Risk
+STU067,Jammu,Govt MAM College Jammu,M.Com,2,Female,21–23,3,1,3,3,1,3,2,0,0,0,2,1,0,0,0,3,0,1,0,1,16,Moderately Severe,6,Mild,2,Minimal,24,Moderate Risk
+STU068,Pulwama,Islamia College Srinagar,M.Sc.,1,Prefer not to say,21–23,0,0,0,3,1,2,0,1,0,0,2,2,0,3,0,1,3,0,1,3,7,Mild,8,Mild,7,Mild,22,Moderate Risk
+STU069,Kupwara,Govt Degree College Pulwama,B.Sc.,3,Male,24–26,0,0,1,0,3,1,0,0,2,3,2,2,1,0,1,0,1,0,1,0,7,Mild,9,Mild,2,Minimal,18,Low Risk
+STU070,Anantnag,Govt MAM College Jammu,M.Com,3,Other,24–26,2,3,0,2,1,0,2,1,0,3,1,2,3,3,0,1,0,1,1,3,11,Moderate,13,Moderate,5,Mild,29,Moderate Risk
+STU071,Jammu,Govt Degree College Kupwara,B.Sc.,1,Male,18–20,2,3,2,2,0,2,2,1,0,1,1,0,0,2,2,1,0,1,3,0,14,Moderate,7,Mild,4,Minimal,25,Moderate Risk
+STU072,Kupwara,Govt MAM College Jammu,B.Tech,4,Other,18–20,2,0,2,0,3,2,0,1,1,3,3,2,3,1,0,3,3,3,2,1,11,Moderate,15,Severe,9,Mild,35,Moderate Risk
+STU073,Pulwama,Govt MAM College Jammu,MBA,2,Other,24–26,1,3,1,0,3,0,3,1,1,1,0,3,3,2,3,3,1,0,1,2,13,Moderate,15,Severe,4,Minimal,32,Moderate Risk
+STU074,Jammu,Govt Degree College Pulwama,MBA,3,Male,18–20,3,2,0,0,0,1,3,3,2,1,0,2,0,3,2,2,1,0,3,1,14,Moderate,10,Moderate,5,Mild,29,Moderate Risk
+STU075,Jammu,Govt Degree College Pulwama,MBA,4,Prefer not to say,21–23,0,2,2,2,0,0,0,3,0,1,2,2,0,1,1,2,3,1,2,0,9,Mild,9,Mild,6,Mild,24,Moderate Risk
+STU076,Srinagar,Govt Degree College Anantnag,B.Tech,2,Female,21–23,1,2,0,2,2,0,1,0,1,0,2,2,0,1,3,2,1,2,1,1,9,Mild,10,Moderate,5,Mild,24,Moderate Risk
+STU077,Pulwama,Govt Degree College Anantnag,B.Tech,2,Prefer not to say,21–23,2,0,0,0,0,3,2,3,0,0,2,2,1,2,1,0,1,3,1,2,10,Moderate,8,Mild,7,Mild,25,Moderate Risk
+STU078,Anantnag,Islamia College Srinagar,B.Tech,2,Male,24–26,3,2,0,2,3,1,3,1,2,0,1,3,3,1,1,3,3,3,1,3,17,Moderately Severe,12,Moderate,10,Moderate,39,Moderate Risk
+STU079,Srinagar,Govt Degree College Baramulla,B.Tech,4,Other,18–20,2,1,0,0,3,3,3,1,2,1,1,0,3,2,1,0,1,3,1,1,15,Moderately Severe,8,Mild,6,Mild,29,Moderate Risk
+STU080,Baramulla,Govt Degree College Baramulla,B.Com,4,Male,21–23,2,1,3,0,0,2,3,1,0,1,1,0,2,2,1,1,1,3,2,3,12,Moderate,8,Mild,9,Mild,29,Moderate Risk
+STU081,Baramulla,Govt Degree College Anantnag,M.Sc.,1,Prefer not to say,24–26,3,2,1,1,2,2,1,1,0,0,0,1,2,2,0,2,0,3,3,1,13,Moderate,7,Mild,7,Mild,27,Moderate Risk
+STU082,Jammu,Islamia College Srinagar,B.Tech,2,Male,24–26,1,3,0,0,0,3,3,1,1,0,3,3,0,2,3,1,3,0,3,3,12,Moderate,12,Moderate,9,Mild,33,Moderate Risk
+STU083,Kupwara,Govt Degree College Pulwama,M.A.,3,Prefer not to say,18–20,1,2,3,1,1,2,0,0,1,1,2,3,0,0,1,2,2,1,1,3,11,Moderate,9,Mild,7,Mild,27,Moderate Risk
+STU084,Jammu,Govt Degree College Baramulla,B.Sc.,3,Male,18–20,1,0,2,0,0,1,3,2,2,0,2,2,3,3,2,3,1,3,3,3,11,Moderate,15,Severe,10,Moderate,36,Moderate Risk
+STU085,Kupwara,Govt Degree College Pulwama,B.Com,3,Other,21–23,3,1,1,3,2,1,0,0,1,2,2,0,3,3,3,0,0,3,0,2,12,Moderate,13,Moderate,5,Mild,30,Moderate Risk
+STU086,Srinagar,Govt Degree College Pulwama,M.Sc.,4,Prefer not to say,24–26,3,1,2,3,2,2,0,2,2,0,3,3,3,0,3,1,2,2,1,0,17,Moderately Severe,13,Moderate,5,Mild,35,Moderate Risk
+STU087,Anantnag,Islamia College Srinagar,MBA,1,Prefer not to say,21–23,1,0,2,2,1,3,3,1,2,0,1,1,2,1,0,1,0,2,1,1,15,Moderately Severe,6,Mild,4,Minimal,25,Moderate Risk
+STU088,Kupwara,Govt Degree College Baramulla,MBA,3,Female,18–20,3,2,3,2,0,1,2,0,2,3,2,2,0,2,0,0,0,3,2,0,15,Moderately Severe,9,Mild,5,Mild,29,Moderate Risk
+STU089,Pulwama,Govt Degree College Anantnag,B.Sc.,2,Male,24–26,0,3,3,0,2,3,0,3,2,1,0,1,2,2,2,2,0,0,2,2,16,Moderately Severe,10,Moderate,4,Minimal,30,Moderate Risk
+STU090,Anantnag,Islamia College Srinagar,B.Sc.,4,Female,24–26,3,2,1,1,3,2,0,0,2,0,2,1,3,3,1,0,0,0,0,0,14,Moderate,10,Moderate,0,Minimal,24,Moderate Risk
+STU091,Anantnag,Govt Degree College Pulwama,M.A.,3,Female,18–20,0,1,2,3,1,2,2,2,2,1,3,0,3,0,2,1,3,2,0,0,15,Moderately Severe,10,Moderate,5,Mild,30,Moderate Risk
+STU092,Baramulla,Islamia College Srinagar,M.Com,1,Prefer not to say,21–23,0,2,3,2,1,2,0,3,1,2,2,0,1,1,2,0,2,0,3,0,14,Moderate,8,Mild,5,Mild,27,Moderate Risk
+STU093,Jammu,Govt Degree College Anantnag,M.Com,1,Prefer not to say,24–26,3,2,1,2,3,1,0,3,1,3,0,3,1,0,3,3,2,1,2,2,16,Moderately Severe,13,Moderate,7,Mild,36,Moderate Risk
+STU094,Srinagar,Govt Degree College Baramulla,B.Com,1,Prefer not to say,18–20,2,0,0,1,2,1,2,3,0,2,3,0,2,3,3,3,0,3,3,0,11,Moderate,16,Severe,6,Mild,33,Moderate Risk
+STU095,Jammu,Govt Degree College Pulwama,B.Tech,1,Other,18–20,3,0,3,2,1,0,2,0,0,3,1,2,3,0,3,2,2,1,3,2,11,Moderate,14,Moderate,8,Mild,33,Moderate Risk
+STU096,Baramulla,Govt Degree College Pulwama,M.Sc.,2,Other,18–20,2,1,0,1,3,2,0,0,0,3,3,0,0,3,2,3,1,2,0,2,9,Mild,14,Moderate,5,Mild,28,Moderate Risk
+STU097,Pulwama,Islamia College Srinagar,M.A.,2,Other,21–23,0,3,3,3,1,3,0,1,0,1,0,0,3,0,0,2,0,3,1,2,14,Moderate,6,Mild,6,Mild,26,Moderate Risk
+STU098,Kupwara,Govt Degree College Baramulla,B.A.,3,Prefer not to say,21–23,0,1,2,1,1,0,1,1,1,1,2,0,1,3,3,0,0,3,3,2,8,Mild,10,Moderate,8,Mild,26,Moderate Risk
+STU099,Srinagar,Govt Degree College Kupwara,B.Com,1,Other,18–20,3,2,2,2,3,0,1,1,0,3,2,2,3,0,2,1,3,0,0,1,14,Moderate,13,Moderate,4,Minimal,31,Moderate Risk
+STU100,Kupwara,Govt Degree College Baramulla,B.Tech,2,Prefer not to say,21–23,2,2,3,2,2,0,1,1,3,3,0,1,3,1,3,1,2,0,0,2,16,Moderately Severe,12,Moderate,4,Minimal,32,Moderate Risk

@@ -1,0 +1,94 @@
+/* MindCare Theme: Kashmir Calm Palette */
+:root {
+  --mc-primary: #14532d; /* new main green */
+  --mc-primary-hover: #0f3c21; /* darker green for hover */
+  --mc-secondary: #F9F7F0; /* warm beige (sections/cards) */
+  --mc-secondary-hover: #f0ede3;
+  --mc-bg: #F9F7F0; /* warm beige base */
+  --mc-accent: #3AAFA9; /* calm teal (highlights/hover/CTA) */
+  --mc-text: #2E2E2E; /* dark slate */
+  --mc-subtext: #6B6B6B; /* soft grey */
+  --mc-border: #E6E2D9; /* soft beige border */
+}
+
+/* Base */
+html, body {
+  background-color: var(--mc-bg) !important;
+  color: var(--mc-text) !important;
+}
+
+/* Typography overrides for Tailwind stone/gray used in templates */
+.text-stone-900, .text-gray-900 { color: var(--mc-text) !important; }
+.text-stone-800 { color: var(--mc-text) !important; }
+.text-stone-700 { color: var(--mc-text) !important; }
+.text-stone-600, .text-gray-600 { color: var(--mc-subtext) !important; }
+.text-stone-500, .text-gray-500 { color: var(--mc-subtext) !important; }
+.text-stone-400, .text-gray-400 { color: #9A9996 !important; }
+
+/* Map indigo utilities used in hi/ks pages to main/accents */
+.text-indigo-600, .text-indigo-700, .text-indigo-800 { color: var(--mc-primary) !important; }
+.hover\:text-indigo-600:hover, .hover\:text-indigo-700:hover { color: var(--mc-accent) !important; }
+.bg-indigo-500, .bg-indigo-600, .bg-indigo-700 { background-color: var(--mc-primary) !important; }
+.hover\:bg-indigo-700:hover, .hover\:bg-indigo-600:hover, .hover\:bg-indigo-500:hover { background-color: var(--mc-primary-hover) !important; }
+.border-indigo-500, .border-indigo-600, .border-indigo-700 { border-color: var(--mc-primary) !important; }
+.focus\:ring-indigo-500:focus, .focus\:ring-indigo-600:focus { box-shadow: 0 0 0 3px color-mix(in srgb, var(--mc-accent) 45%, transparent) !important; }
+.focus\:border-indigo-500:focus, .focus\:border-indigo-600:focus { border-color: var(--mc-primary) !important; }
+
+/* Primary color remap (headers/nav/buttons) */
+.text-green-800, .text-green-900 { color: var(--mc-primary) !important; }
+.bg-green-900, .bg-green-800, .bg-green-700 { background-color: var(--mc-primary) !important; }
+.hover\:bg-green-900:hover, .hover\:bg-green-800:hover, .hover\:bg-green-700:hover { background-color: var(--mc-primary-hover) !important; }
+.border-green-700 { border-color: var(--mc-primary) !important; }
+.focus\:ring-green-700:focus { box-shadow: 0 0 0 3px color-mix(in srgb, var(--mc-accent) 45%, transparent) !important; outline: none; }
+.focus\:border-green-700:focus { border-color: var(--mc-primary) !important; }
+
+/* Accent and subtle chips (use accent teal for emphasis) */
+.bg-green-100 { background-color: color-mix(in srgb, var(--mc-accent) 20%, white) !important; }
+.text-green-400, .text-green-500 { color: color-mix(in srgb, var(--mc-accent) 60%, black) !important; }
+.hover\:bg-green-200:hover { background-color: color-mix(in srgb, var(--mc-accent) 35%, white) !important; }
+
+/* Background tints mapping from stone to beige family */
+.bg-stone-50, .bg-stone-100 { background-color: color-mix(in srgb, var(--mc-bg) 95%, #ffffff 5%) !important; }
+.bg-stone-200 { background-color: color-mix(in srgb, var(--mc-bg) 90%, #ffffff 10%) !important; }
+.hover\:bg-stone-100:hover { background-color: color-mix(in srgb, var(--mc-bg) 92%, #ffffff 8%) !important; }
+.hover\:bg-stone-300:hover { background-color: color-mix(in srgb, var(--mc-bg) 85%, #ffffff 15%) !important; }
+/* Gray background variants used in hi/ks */
+.bg-gray-50, .bg-gray-100 { background-color: color-mix(in srgb, var(--mc-bg) 95%, #ffffff 5%) !important; }
+.hover\:bg-gray-50:hover, .hover\:bg-gray-100:hover { background-color: color-mix(in srgb, var(--mc-bg) 92%, #ffffff 8%) !important; }
+.border-gray-200, .border-gray-300 { border-color: var(--mc-border) !important; }
+.divide-gray-200 > :not([hidden]) ~ :not([hidden]) { border-color: var(--mc-border) !important; }
+
+/* Cards, borders, dividers */
+.border-stone-200, .border-stone-300 { border-color: var(--mc-border) !important; }
+.divide-stone-200 > :not([hidden]) ~ :not([hidden]) { border-color: var(--mc-border) !important; }
+
+/* Footer background remap to calm dark slate with improved contrast */
+.bg-stone-900 { background-color: var(--mc-text) !important; }
+.border-stone-700 { border-color: #474747 !important; }
+
+/* Links in dark areas */
+footer a, .bg-stone-900 a { color: #E8E8E8; }
+footer a:hover, .bg-stone-900 a:hover { color: #ffffff; }
+
+/* Buttons: ensure transitions feel soft */
+button, .btn, a[class*="px-"][class*="py-"] {
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+/* Accent usage: apply to focus states and subtle highlights when present */
+.focus\:ring-offset-2:focus { box-shadow: 0 0 0 2px var(--mc-accent) !important; }
+
+/* Language tag chips override (was olive) */
+.language-tag { background-color: color-mix(in srgb, var(--mc-primary) 85%, black 0%) !important; }
+
+/* Chat bubbles */
+.message-user { background-color: var(--mc-accent) !important; color: white !important; }
+.message-bot { background-color: color-mix(in srgb, var(--mc-bg) 90%, #e0e0e0 10%) !important; color: var(--mc-text) !important; }
+
+/* Lavender highlight utility (sparingly) */
+.mc-highlight { background-color: #A7A5C6 !important; color: #ffffff !important; }
+
+/* Icon color harmonization inside soft containers */
+.bg-white i[data-feather], .bg-stone-50 i[data-feather], .bg-stone-100 i[data-feather] { color: var(--mc-primary) !important; stroke: var(--mc-primary) !important; }
+
+
